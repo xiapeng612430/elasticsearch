@@ -1,6 +1,4 @@
-spring:
-  rsocket:
-    server:
+server:
       port: 8888
 
 elasticsearch:
