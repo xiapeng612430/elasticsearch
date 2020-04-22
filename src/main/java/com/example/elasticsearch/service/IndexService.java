@@ -9,5 +9,5 @@ import org.elasticsearch.action.index.IndexResponse;
  */
 public interface IndexService {
 
-    IndexResponse index(String id, Object object) throws IOException;
+    IndexResponse index(String index, String type, String id, Object object) throws IOException;
 }

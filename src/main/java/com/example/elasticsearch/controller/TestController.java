@@ -24,9 +24,9 @@ public class TestController {
 
     @PostMapping("/index")
     public void index() {
-        Person person = new Person("张三",12,1,"数据库工程师");
+        Person person = new Person("张三", 12, 1, "数据库工程师");
         try {
-            indexService.index("1", person);
+            indexService.index("accounts", "person", "1", person);
         } catch (Exception e) {
             logger.error("e:{}", e);
         }

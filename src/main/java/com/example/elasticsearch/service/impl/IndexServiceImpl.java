@@ -23,12 +23,10 @@ public class IndexServiceImpl implements IndexService {
     RestHighLevelClient restHighLevelClient;
 
     @Override
-    public IndexResponse index(String id, Object object) throws IOException {
+    public IndexResponse index(String index, String type, String id, Object object) throws IOException {
         String jsonString = JSONObject.toJSONString(object);
 
-        IndexRequest indexRequest = new IndexRequest();
-        indexRequest.index("accounts");
-        indexRequest.id(id);
+        IndexRequest indexRequest = new IndexRequest(index, type, id);
         indexRequest.source(jsonString, XContentType.JSON);
 
         return restHighLevelClient.index(indexRequest, RequestOptions.DEFAULT);
